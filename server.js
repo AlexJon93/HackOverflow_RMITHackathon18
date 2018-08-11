@@ -30,7 +30,23 @@ app.post('*', (req, res) => {
             }
         });
     }
-    else {
+    else if(reqType === 'scanTable'){
+        var dbPar = req.body;
+
+        docClient.scan(dbPar, function (err, data) {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                console.log(data);
+                res.json(data);
+            }
+        });
+    }
+    else if(reqType === 'queryTable'){
+        var dbPar = req.body;
+
+        
     }
 
     

@@ -9,7 +9,7 @@ $(document).ready(function(){
             Key: {
                 "user_id": $('.user').val()
             }
-        }
+        };
         getItem(send, handleData);
         // console.log(item);
     });
