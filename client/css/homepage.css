@@ -13,3 +13,23 @@ body {
     padding-top: 56px;
   }
 }
+
+.arrow-up {
+  margin: 2px;
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-bottom: 20px solid green;
+}
+
+.arrow-down {
+  margin: 2px;
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid #f00;
+}

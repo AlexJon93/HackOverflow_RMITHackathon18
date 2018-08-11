@@ -25,8 +25,20 @@ app.post('*', (req, res) => {
                 console.log(err);
             }
             else {
-                console.log('success');
                 res.json(data.Item);
+            }
+        });
+    }
+    else if (reqType === 'addItem'){
+        var dbPar = req.body;
+        console.log('adding item');
+
+        docClient.put(dbPar, function(err, data){
+            if(err){
+                console.log(err);
+            }
+            else {
+                console.log(data);
             }
         });
     }
@@ -46,7 +58,7 @@ app.post('*', (req, res) => {
     else if(reqType === 'queryTable'){
         var dbPar = req.body;
 
-        
+
     }
 
     

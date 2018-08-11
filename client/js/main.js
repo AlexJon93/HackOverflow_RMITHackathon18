@@ -13,6 +13,7 @@ function getItem(send, handleData){
 }
 
 function addItem(send) {
+    send.reqType = "addItem";
     $.ajax({
         datatype: "json",
         url: "/form",

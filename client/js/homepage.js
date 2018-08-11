@@ -20,9 +20,9 @@ function handleData(item) {
         var items = item.Items;
 
         items.forEach(element => {
-            $('.subbed').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big></li>');
+            $('.subbed').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big><div class="arrow-up"></div><div class="arrow-down"></div></li>');
             if(element.Views > viewThreshold) {
-                $('.popular').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big></li>');
+                $('.popular').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big><div class="arrow-up"></div><div class="arrow-down"></div></li>');
             }
         });
     }
