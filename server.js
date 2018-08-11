@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const aws = require('aws-sdk');
+aws.config.loadFromPath('config.json');
 
 const app = express();
 const docClient = new aws.DynamoDB.DocumentClient();
@@ -29,7 +30,13 @@ app.post('*', (req, res) => {
             console.log(err);
         }
         else {
-            console.log(data);
+            console.log(data.Item);
+            if(data.Item.password === password) {
+                console.log('success');
+            }
+            else {
+                console.log(data.password + ' != ' + password);
+            }
         }
     });
 });
