@@ -1,3 +1,5 @@
 node_modules/
 .gitignore
 .elasticbeanstalk/
+package.json
+config.json
