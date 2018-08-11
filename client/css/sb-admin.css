@@ -13,6 +13,11 @@ body {
   height: 100%;
 }
 
+.resize {
+    width: 100px;
+    height: auto;
+}
+
 #wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
