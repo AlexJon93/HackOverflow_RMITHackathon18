@@ -10,33 +10,20 @@ const docClient = new aws.DynamoDB.DocumentClient();
 app.use(bodyParser.json());
 
 app.get('*', (req, res) => {
-    var fileName = req.params[0];
-    console.log(fileName);
     res.sendFile(path.join(__dirname, 'client', req.params[0]));
 });
 
 app.post('*', (req, res) => {
-    var user = req.body.user;
-    var password = req.body.password;
-    var dbPar = {
-        TableName: "User",
-        Key:{"user_id" : user}
-    }
-
-    console.log('Received ' + req.body.user + ' ' + req.body.password);
+    var dbPar = req.body;
+    // console.log('Received ' + req.body + ' ' + req.body.password);
 
     docClient.get(dbPar, function(err, data){
         if(err) {
             console.log(err);
         }
         else {
-            console.log(data.Item);
-            if(data.Item.password === password) {
-                console.log('success');
-            }
-            else {
-                console.log(data.password + ' != ' + password);
-            }
+            console.log('success');
+            res.json(data.Item);
         }
     });
 });
