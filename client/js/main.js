@@ -1,6 +1,5 @@
 function getItem(send, handleData){ 
-    // console.log(JSON.stringify(send));
-    // var item;
+    send.reqType = "getItem";
     return $.ajax({
         datatype: "json",
         url: "/form",
@@ -26,3 +25,4 @@ function addItem(send) {
         }
     });
 }
+

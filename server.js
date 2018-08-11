@@ -14,18 +14,26 @@ app.get('*', (req, res) => {
 });
 
 app.post('*', (req, res) => {
-    var dbPar = req.body;
-    // console.log('Received ' + req.body + ' ' + req.body.password);
+    var reqType = req.body.reqType;
+    delete req.body.reqType
 
-    docClient.get(dbPar, function(err, data){
-        if(err) {
-            console.log(err);
-        }
-        else {
-            console.log('success');
-            res.json(data.Item);
-        }
-    });
+    if(reqType === 'getItem') {
+        var dbPar = req.body;
+
+        docClient.get(dbPar, function(err, data){
+            if(err) {
+                console.log(err);
+            }
+            else {
+                console.log('success');
+                res.json(data.Item);
+            }
+        });
+    }
+    else {
+    }
+
+    
 });
 
 const port = process.env.PORT || 5000;
