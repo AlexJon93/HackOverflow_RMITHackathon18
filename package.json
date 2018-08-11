@@ -1,0 +1,11 @@
+{
+  "name": "UniFlow",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
