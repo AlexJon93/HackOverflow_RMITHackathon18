@@ -1,7 +1,8 @@
 var password
 
 $(document).ready(function(){
-    $(".submit-btn").click(function(){
+    $(".form").submit(function(event){
+        event.preventDefault();
         password = $(".password").val();
         var send = {
             TableName: "User",
