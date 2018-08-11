@@ -14,10 +14,13 @@ app.get('*', (req, res) => {
 });
 
 app.post('*', (req, res) => {
+    console.log('req made');
     var reqType = req.body.reqType;
-    delete req.body.reqType
+    console.log(req.body);
+    delete req.body.reqType;
 
     if(reqType === 'getItem') {
+        console.log('getting item');
         var dbPar = req.body;
 
         docClient.get(dbPar, function(err, data){
@@ -38,7 +41,8 @@ app.post('*', (req, res) => {
                 console.log(err);
             }
             else {
-                console.log(data);
+                res.json(data);
+                // console.log(data);
             }
         });
     }
@@ -50,7 +54,7 @@ app.post('*', (req, res) => {
                 console.log(err);
             }
             else {
-                console.log(data);
+                // console.log(data);
                 res.json(data);
             }
         });

@@ -1,30 +1,29 @@
 var password
 
 $(document).ready(function(){
-    $(".form").submit(function(event){
-        event.preventDefault();
-        password = $(".password").val();
-        var send = {
-            TableName: "User",
-            Key: {
-                "user_id": $('.user').val()
-            }
-        };
-        getItem(send, handleData);
-        // console.log(item);
-    });
+
 });
+
+function addThreads() {
+    var send = {
+        TableName: "Questions"
+    }
+    scanTable(send, handleData);
+}
 
 function handleData(item) {
 
-    console.log(item);
     if(typeof item == 'undefined') {
         console.log("Item is undefined");
     }
-    else if(item.password === password) {
-        $(".result").text("Password matches");
-    }
     else {
-        $(".result").text("Passwords do not match");
+        var items = item.Items;
+
+        items.forEach(element => {
+            $('.subbed').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big><div class="arrow-up"></div><div class="arrow-down"></div></li>');
+            if(element.Views > viewThreshold) {
+                $('.popular').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big><div class="arrow-up"></div><div class="arrow-down"></div></li>');
+            }
+        });
     }
 }

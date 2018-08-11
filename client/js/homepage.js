@@ -20,9 +20,35 @@ function handleData(item) {
         var items = item.Items;
 
         items.forEach(element => {
-            $('.subbed').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big><div class="arrow-up"></div><div class="arrow-down"></div></li>');
-            if(element.Views > viewThreshold) {
-                $('.popular').append('<li><big><font color="blue"><u>'+ element.Title +'</font></u></big><div class="arrow-up"></div><div class="arrow-down"></div></li>');
+            $('.subbed').append(
+                '<div>' +
+                '<div class="card-body">' +
+                  '<a class="clearfix small z-1" href="Electronics.html">' +
+                    '<p class="card-text">' +
+                        '<h4> '+ element.title +' </h4>' +
+                    '</p>' +
+                  '</a>' +
+                  '<b>Subscribed Course:</b> ' + element.course +
+                  '<br>' +
+                  '<b>Timestamp:</b>' + element.timestamp +
+                  '<b>Views:</b>' + element.views +
+                '</div>' +
+              '</div>');
+            if(element.views > viewThreshold) {
+                $('.popular').append(
+                    '<div>' +
+                    '<div class="card-body">' +
+                      '<a class="clearfix small z-1" href="Electronics.html">' +
+                        '<p class="card-text">' +
+                            '<h4> '+ element.title +' </h4>' +
+                        '</p>' +
+                      '</a>' +
+                      '<b>Subscribed Course:</b> ' + element.course +
+                      '<br>' +
+                      '<b>Timestamp:</b>' + element.timestamp +
+                      '<b>Views:</b>' + element.views +
+                    '</div>' +
+                  '</div>');
             }
         });
     }

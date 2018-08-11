@@ -14,14 +14,20 @@ function getItem(send, handleData){
 
 function addItem(send) {
     send.reqType = "addItem";
+    console.log('adding item');
+    console.log(JSON.stringify(send));
     $.ajax({
+        type: 'POST',
         datatype: "json",
-        url: "/form",
-        type:   "post",
+        contentType: "application/json; charset=utf-8",
         data: JSON.stringify(send),
-        contentType: "application/json",
         success: function(data){
-            handleData(data);
+            location.reload();
+            return;
+        },
+        error: function(){
+            // alert('error');
+            return;
         }
     });
 }
