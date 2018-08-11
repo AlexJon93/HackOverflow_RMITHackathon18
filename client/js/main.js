@@ -1,29 +1,15 @@
-function getItem(table, keyType, key){
-
-    var mapKey = new Map();
-    mapKey.set(keyType, key);
-    console.log(JSON.stringify(mapKey));
-
-    var type = keyType;
-    var send = {
-        TableName: table,
-        Key: {
-            type: key
-        }
-    }
-
+function getItem(send, handleData){ 
     // console.log(JSON.stringify(send));
-
-    $.ajax({
+    // var item;
+    return $.ajax({
         datatype: "json",
         url: "/form",
         type:   "post",
         data: JSON.stringify(send),
         contentType: "application/json",
         success: function(data){
-            item = data;
+            handleData(data);
         }
     });
-
-    return item;
+    // console.log(item);
 }
